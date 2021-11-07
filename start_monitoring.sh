@@ -5,10 +5,13 @@ sleepTime=$MONITORING_SLEEP_TIME
 serverName='pi-cooler'
 apiEndpoint="http://$serverName:3000/temperatures.json"
 
-echo "Temperature monitoring started for $piName. Hit CTRL+C to stop."
+echo "Temperature monitoring started for \"$piName\"."
 echo "Checking temperature every $sleepTime seconds."
 echo "API Endpoint: $apiEndpoint"
+echo "Hit CTRL+C to stop"
+echo ""
 echo "---"
+echo ""
 
 for (( ; ; ))
 do
@@ -22,5 +25,5 @@ do
     -d '{ "temperature": { "pi_name": "'$piName'", "reading": '$reading' } }' \
     $apiEndpoint
 
-  sleep sleepTime
+  sleep $sleepTime
 done
