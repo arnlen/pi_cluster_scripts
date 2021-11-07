@@ -13,10 +13,7 @@ do
 
   echo "["$piName"] Temperature: "$reading
   curl -X POST -H "Content-Type: application/json" \
-    -d '{ "temperature": { \
-      "pi_name": '$piName', \
-      "reading": '$reading' } \
-    }' \
+    -d '{ "temperature": { "pi_name": "'$piName'", "reading": '$reading' } }' \
     $apiEndpoint
 
   sleep 30
