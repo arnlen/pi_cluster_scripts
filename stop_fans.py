@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import init_fans
 
 fanPin = 23
 
