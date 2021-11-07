@@ -9,11 +9,9 @@ do
   piName=$PI_NAME
 
   echo "["$piName"] Temperature: "$reading
-
-  echo $piName
-  echo $reading
-
-  curl -X POST -H "Content-Type: application/json" -d '{ "temperature": { "pi_name": '$piName', "reading": '$reading' } }' http://localhost:3000/temperatures.json
+  curl -X POST -H "Content-Type: application/json" \
+    -d '{ "temperature": { "pi_name": '$piName', "reading": '$reading' } }' \
+    http://localhost:3000/temperatures.json
 
   sleep 30
 done
