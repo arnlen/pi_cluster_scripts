@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# TODO
+# - Check presence of env variables
+# - Create install script
+
 piName=$PI_NAME
 sleepTime=$MONITORING_SLEEP_TIME
 serverName='pi-cooler'
-apiEndpoint="http://$serverName:3000/temperatures.json"
+apiEndpoint="http://$serverName.local:3000/temperatures.json"
 
 echo "Temperature monitoring started for \"$piName\"."
 echo "Checking temperature every $sleepTime seconds."
