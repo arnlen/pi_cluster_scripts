@@ -4,11 +4,16 @@ echo "Temperature monitoring started. Hit CTRL+C to stop."
 
 for (( ; ; ))
 do
-  vcgencmdOutput = vcgencmd measure_temp
-  echo ${var:15}
+  vcgencmdOutput=$(vcgencmd measure_temp)
+  reading=${vcgencmdOutput:5:4}
+  piName=$PI_NAME
 
+  echo "["$piName"] Temperature: "$reading
 
-  curl -X POST -H "Content-Type: application/json" -d '{ "temperature": { "pi_name": "cooler", "reading": 18.3 } }' http://localhost:3000/temperatures.json
+  echo $piName
+  echo $reading
+
+  curl -X POST -H "Content-Type: application/json" -d '{ "temperature": { "pi_name": '$piName', "reading": '$reading' } }' http://localhost:3000/temperatures.json
 
   sleep 30
 done
