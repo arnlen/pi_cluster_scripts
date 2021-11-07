@@ -9,5 +9,5 @@ GPIO.setup(transistorPin, GPIO.OUT)
 
 GPIO.output(transistorPin, GPIO.LOW)
 
-print("Starting fans!")
-GPIO.output(transistorPin, GPIO.HIGH)
+print("Starting fans")
+GPIO.output(transistorPin, GPIO.LOW)
