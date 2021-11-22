@@ -4,7 +4,7 @@
 # - Check presence of env variables
 # - Create install script
 
-piName=$HOST
+piName=$(hostname)
 sleepTime=30
 serverName='pi-cooler'
 apiEndpoint="http://$serverName.local:3000/temperatures.json"
